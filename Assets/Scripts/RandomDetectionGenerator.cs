@@ -8,7 +8,6 @@ public class RandomDetectionGenerator : MonoBehaviour
     //x,y, and z min correspond to vehicle dimensions (with [0,0,0] at center of vehicle)
     float zMin = 13.5f * 0.5f;
     float zMax = 13.5f;
-    float yMin = 5f * 0.5f;
     float yMax = 5f;
     float xMin = 5.5f * 0.5f;
     float xMax = 5.5f;
