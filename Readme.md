@@ -13,6 +13,11 @@ Tcp Server App: MacBook Pro 15"
 
 These applications have not been tested with other devices but *should* be able to run on other MacOS for server and Android devices supporting Vuforia for the client
 
+Other projects used / referenced here:
+https://github.com/dave-hillier/disruptor-unity3d/
+https://riptutorial.com/qt/example/29873/tcp-client
+
+
 ## Why 
 Being able to see sensor data around a real vehicle can be a very important tool for the development of autonomous vehicles (and other devices!). Using Augmented Reality - we can overlay a visualization of sensor detections into the real world. An engineer could see live if a sensor is getting false detections, or if a certain object is triggering detections or not (e.g. a pedestrian, animal, rock, etc.)
 
