@@ -11,7 +11,7 @@ public class FollowImageTarget : MonoBehaviour
 
     private void Start()
     {
-
+        Screen.orientation = ScreenOrientation.Portrait;
     }
 
     // Update is called once per frame
@@ -23,11 +23,13 @@ public class FollowImageTarget : MonoBehaviour
             {
                 transform.position = imageTargetTransform.position;
                 transform.rotation = imageTargetTransform.rotation;
-                children.SetActive(true);
+                if(!children.activeSelf)
+                    children.SetActive(true);
             }
             else
             {
-                children.SetActive(false);
+                if(children.activeSelf)
+                    children.SetActive(false);
             }
         }
     }

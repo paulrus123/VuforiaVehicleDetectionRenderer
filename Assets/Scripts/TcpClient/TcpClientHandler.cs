@@ -8,14 +8,19 @@ public class TcpClientHandler : MonoBehaviour
 {
 
     public string hostName = "localhost";
-    public int port = 4445;
+    public int port = 4444;
 
     private TcpClient m_client;
     private Thread clientThread;
-    
-    private void Start()
-    {
-        ConnectToServer();
+
+    public bool isConnected() 
+    { 
+        if(m_client!=null )
+        {
+            if (m_client.Connected)
+                return true;
+        }
+        return false;
     }
 
     public void ConnectToServer()
@@ -32,27 +37,36 @@ public class TcpClientHandler : MonoBehaviour
         }
     }
 
+    public void Disconnect()
+    {
+        try
+        {
+            m_client.Close();
+            m_client = null;
+            clientThread.Abort();
+            clientThread = null;
+
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Exception: " + e);
+        }
+    }
+
+
+
     private void ReceiveData()
     {
         try
         {
             m_client = new TcpClient(hostName, port);
-            byte[] bytes = new byte[1024];
             using (NetworkStream stream = m_client.GetStream())
             {
-                int length;
                 while (true)
                 {
-                    if ((length = stream.Read(bytes, 0, bytes.Length)) != 0)
+                    if (PointCloudDecoder.DecodeString(stream) == 0) 
                     {
-                        var data = new byte[length];
-                        Array.Copy(bytes, 0, data, 0, length);
-                        string serverMessage = Encoding.ASCII.GetString(data);
-                        Debug.Log("Received message: " + serverMessage);
-                    }
-                    else
-                    {
-                        break;
+                        break; 
                     }
                 }
             } 
