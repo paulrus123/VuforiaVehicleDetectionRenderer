@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     _server.listen(QHostAddress::Any, port);
     connect(&_server, SIGNAL(newConnection()), this, SLOT(onNewConnection()));
     connect(&_timer, SIGNAL(timeout()), this, SLOT(WritePointCloud()));
-    _timer.start(250);
+    _timer.start(100);
 }
 
 MainWindow::~MainWindow()
