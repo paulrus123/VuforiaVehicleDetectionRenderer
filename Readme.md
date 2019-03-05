@@ -38,3 +38,9 @@ There are several improvements on the rendering and data processing side of the 
 
 2. GPU rendering of points. This will be a challenge as the mobnile client doesn't supported compute shaders - however the goal would be to use an instanced shader to directly render the points via the GPU (instead of instancing a GameObject for every point)
 
+##Screenshots
+
+<p align="center">
+  <img src="docs/pictures/Screenshot_20190305.png" width="350" alt="">
+</p>
+
