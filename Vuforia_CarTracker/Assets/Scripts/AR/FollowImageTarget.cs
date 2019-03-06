@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class FollowImageTarget : MonoBehaviour
 {
-
     public Transform imageTargetTransform;
     public DefaultTrackableEventHandler handler;
     public GameObject children;
 
     private void Start()
     {
+        //Lock screen to portrait mode
         Screen.orientation = ScreenOrientation.Portrait;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (imageTargetTransform != null)
