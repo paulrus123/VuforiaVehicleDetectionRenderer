@@ -3,6 +3,8 @@ A mobile client that can receive streamed (low fidelity) point cloud data and re
 
 Using Qt, Unity and Vuforia
 
+https://youtu.be/A_fr6EjCtQg
+
 ## Intro
 This project includes a Mobile client developed in Unity (to be deployed on an Android device) and a TCP server application build in Qt that can run on a laptop. 
 
@@ -43,5 +45,3 @@ There are several improvements on the rendering and data processing side of the 
 <p align="center">
   <img src="docs/pictures/Screenshot_20190305.png" width="800" alt="">
 </p>
-
-https://youtu.be/rKhRiEORDHY
