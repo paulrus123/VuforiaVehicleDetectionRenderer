@@ -43,5 +43,8 @@ There are several improvements on the rendering and data processing side of the 
 ## Screenshots
 
 <p align="center">
-  <img src="docs/pictures/Screenshot_20190305.png" width="800" alt="">
+  <img src="docs/pictures/Screenshot_20190306-121907.png" width="500" alt="">
+</p>
+<p align="center">
+  <img src="docs/pictures/Screenshot_20190306-121914.png" width="500" alt="">
 </p>
