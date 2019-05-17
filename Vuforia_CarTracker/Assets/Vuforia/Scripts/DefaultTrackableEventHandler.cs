@@ -17,11 +17,15 @@ using Vuforia;
 /// </summary>
 public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 {
+
+    public delegate void TrackableStatusUpdated(Vuforia.TrackableBehaviour.Status status);
+    public event TrackableStatusUpdated OnTrackableStatusUpdated;
+
     #region PROTECTED_MEMBER_VARIABLES
 
     protected TrackableBehaviour mTrackableBehaviour;
     protected TrackableBehaviour.Status m_PreviousStatus;
-    public TrackableBehaviour.Status m_NewStatus;
+    protected TrackableBehaviour.Status m_NewStatus;
 
     #endregion // PROTECTED_MEMBER_VARIABLES
 
@@ -54,6 +58,9 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     {
         m_PreviousStatus = previousStatus;
         m_NewStatus = newStatus;
+
+        if (OnTrackableStatusUpdated != null)
+            OnTrackableStatusUpdated(m_NewStatus);
 
         if (newStatus == TrackableBehaviour.Status.DETECTED ||
             newStatus == TrackableBehaviour.Status.TRACKED ||

@@ -7,18 +7,25 @@ public class FollowImageTarget : MonoBehaviour
     public Transform imageTargetTransform;
     public DefaultTrackableEventHandler handler;
     public GameObject children;
+    Vuforia.TrackableBehaviour.Status m_status;
 
     private void Start()
     {
         //Lock screen to portrait mode
         Screen.orientation = ScreenOrientation.Portrait;
+        handler.OnTrackableStatusUpdated += TrackableStateChange;
+    }
+
+    void TrackableStateChange(Vuforia.TrackableBehaviour.Status new_status)
+    {
+        m_status = new_status;
     }
 
     void Update()
     {
         if (imageTargetTransform != null)
         {
-            if ((handler.m_NewStatus == Vuforia.TrackableBehaviour.Status.EXTENDED_TRACKED) || (handler.m_NewStatus == Vuforia.TrackableBehaviour.Status.TRACKED))
+            if ((m_status == Vuforia.TrackableBehaviour.Status.EXTENDED_TRACKED) || (m_status == Vuforia.TrackableBehaviour.Status.TRACKED))
             {
                 transform.position = imageTargetTransform.position;
                 transform.rotation = imageTargetTransform.rotation;
